@@ -22,13 +22,5 @@ public class SearchService {
         return result;
     }
 
-    public static class MyComparator implements Comparator<Searchable> {
-        @Override
-        public int compare(Searchable s1, Searchable s2) {
-            if (s1.getSearchTerm().length() == s2.getSearchTerm().length()) {
-                return s2.getSearchTerm().compareTo(s1.getSearchTerm());
-            }
-            return s1.getSearchTerm().length()-s2.getSearchTerm().length();
-        }
-    }
+
 }
