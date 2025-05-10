@@ -16,7 +16,7 @@ public  class SearchResult {
         this.contentType = name;
     }
 
-    public SearchResult fromSearchable(Searchable searchable){
+    public static SearchResult fromSearchable(Searchable searchable){
         return new SearchResult(searchable.getID(), searchable.getName(), searchable.getType());
     }
 }
