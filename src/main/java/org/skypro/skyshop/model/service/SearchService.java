@@ -1,5 +1,6 @@
 package org.skypro.skyshop.model.service;
 
+import org.skypro.skyshop.model.comparator.MyComparator;
 import org.skypro.skyshop.model.search.Searchable;
 import org.springframework.stereotype.Service;
 
@@ -20,5 +21,12 @@ public class SearchService {
         TreeSet<SearchResult> result = storageService.getcollectionSearchable().stream()
                 .filter(i -> i.getSearchTerm().contains(searchString))
                 .map(i -> SearchResult.fromSearchable(i))
-                .collect(Collectors.toCollection(() -> new TreeSet<>()));
+
+                .collect(Collectors.toCollection(() -> new TreeSet<>(new MyComparator())));
         return result;
+
+    }
+
+
+}
+
