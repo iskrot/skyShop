@@ -21,6 +21,7 @@ public class SearchService {
         TreeSet<SearchResult> result = storageService.getcollectionSearchable().stream()
                 .filter(i -> i.getSearchTerm().contains(searchString))
                 .map(i -> SearchResult.fromSearchable(i))
+
                 .collect(Collectors.toCollection(() -> new TreeSet<>(new MyComparator())));
         return result;
 
@@ -28,3 +29,4 @@ public class SearchService {
 
 
 }
+
