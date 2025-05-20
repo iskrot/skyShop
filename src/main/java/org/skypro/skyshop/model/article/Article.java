@@ -44,6 +44,11 @@ public class Article implements Searchable, Comparable {
     }
 
     @Override
+    public int compareTo(Object o) {
+        return Searchable.super.compareTo(o);
+    }
+
+    @Override
     public String toString() {
         return
                 name + '\n' +
@@ -62,14 +67,5 @@ public class Article implements Searchable, Comparable {
         return Objects.hashCode(name);
     }
 
-    @Override
-    public int compareTo(Object o) {
-        Searchable article = (Searchable) o;
 
-        if (name.length() == article.getName().length()) {
-            return name.compareTo(article.getName());
-        }
-        return article.getName().length() - name.length();
-
-    }
 }

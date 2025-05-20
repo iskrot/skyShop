@@ -12,11 +12,12 @@ import java.util.stream.Stream;
 
 @Service
 public class BasketService {
-    private final ProductBasket productBasket = new ProductBasket();
+    private final ProductBasket productBasket;
     private final StorageService storageService;
 
 
-    public BasketService( StorageService storageService){
+    public BasketService(ProductBasket productBasket, StorageService storageService){
+        this.productBasket = productBasket;
         this.storageService = storageService;
     }
 
