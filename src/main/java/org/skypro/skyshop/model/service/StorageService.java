@@ -17,6 +17,7 @@ public class StorageService {
     private final Map<UUID, Product> productMap;
     private final Map<UUID, Article> articleMap;
 
+
     public StorageService(Map<UUID, Product> productMap, Map<UUID, Article> articleMap) throws Exception {
         this.productMap = productMap;
         this.articleMap = articleMap;

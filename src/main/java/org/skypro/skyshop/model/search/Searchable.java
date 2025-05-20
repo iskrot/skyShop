@@ -14,4 +14,16 @@ public interface Searchable {
     public String getStringRepresentation();
 
     public UUID getID();
+
+
+    public default int compareTo(Object o) {
+
+        Searchable searchable = (Searchable) o;
+
+        if (name.length() == searchable.getName().length()) {
+            return name.compareTo(searchable.getName());
+        }
+        return searchable.getName().length() - name.length();
+
+    }
 }

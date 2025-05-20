@@ -26,6 +26,11 @@ public abstract class Product implements Searchable, Comparable {
         return id;
     }
 
+    @Override
+    public int compareTo(Object o) {
+        return Searchable.super.compareTo(o);
+    }
+
     @JsonIgnore
     public String getSearchTerm() {
         return name;
@@ -63,15 +68,5 @@ public abstract class Product implements Searchable, Comparable {
         return Objects.hash(name);
     }
 
-    @Override
-    public int compareTo(Object o) {
 
-        Searchable product = (Searchable) o;
-
-        if (name.length() == product.getName().length()) {
-            return name.compareTo(product.getName());
-        }
-        return product.getName().length() - name.length();
-
-    }
 }

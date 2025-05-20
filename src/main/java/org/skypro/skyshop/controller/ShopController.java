@@ -1,6 +1,7 @@
 package org.skypro.skyshop.controller;
 
 import org.skypro.skyshop.model.article.Article;
+import org.skypro.skyshop.model.basket.ProductBasket;
 import org.skypro.skyshop.model.basket.UserBasket;
 import org.skypro.skyshop.model.product.Product;
 import org.skypro.skyshop.model.search.SearchResult;
@@ -19,7 +20,7 @@ import java.util.UUID;
 public class ShopController {
     StorageService storageService = new StorageService(new HashMap<>(), new HashMap<>());
     SearchService searchService = new SearchService(storageService);
-    BasketService basketService = new BasketService( storageService);
+    BasketService basketService = new BasketService(new ProductBasket(),storageService);
 
     public ShopController() throws Exception {
     }
